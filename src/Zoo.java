@@ -11,18 +11,25 @@ public class Zoo {
         String animalName = scanner.nextLine();
         Animal animal = createAnimal(animalName);
         System.out.println(String.format("Created %s!", animal));
+
     }
 
-    static Animal createAnimal(String animalName){
-        if (animalName.equals("snake")) {
-            return new Snake();
-        } else if (animalName.equals("lion")) {
-            return new Lion();
-        } else if (animalName.equals("condor")) {
-            return new Condor();
+    static Animal createAnimal(String animalName) {
+        Animal animal;
+        switch (animalName) {
+            case "snake":
+                animal = new Snake();
+                break;
+            case "lion":
+                animal = new Lion();
+                break;
+            case "condor":
+                animal = new Condor();
+                break;
+            default:
+                animal = new Animal();
         }
-        else {
-            return new Animal();
-        }
+        return animal;
+
     }
 }
